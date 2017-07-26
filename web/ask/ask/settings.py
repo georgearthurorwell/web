@@ -25,12 +25,13 @@ SECRET_KEY = 'u#k!bw06(pmkmvjya&tf$+ox%u8_nfz#giourhmn_*z-flnyr&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '10.42.24.6']
+ALLOWED_HOSTS = ['0.0.0.0', '10.42.24.6', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'qa.apps.QaConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -103,9 +104,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
