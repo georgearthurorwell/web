@@ -20,7 +20,7 @@ class QuestionManager(models.Manager):
                 result_list.append(p)
         return result_list
 
-    def new(self):
+    def popular(self):
         from django.db import connection
         with connection.cursor() as cursor:
             cursor.execute("""
@@ -38,11 +38,11 @@ class QuestionManager(models.Manager):
 class Question(models.Model):
     title = models.CharField(max_length=255, blank=False)
     text = models.TextField()
-    added_at = models.DateTimeField()
+    added_at = models.DateTimeField(auto_now_add=True)
     rating = models.IntegerField(default = 0)
-    author = models.ForeignKey(User, related_name="question_author")
+    author = models.ForeignKey(User, default='x', related_name="question_author")
     likes = models.ManyToManyField(User, related_name="question_like")
-    object = QuestionManager()
+    objects = QuestionManager()
 
     class Meta:
         ordering = ('-added_at',)
